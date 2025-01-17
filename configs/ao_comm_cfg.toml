@@ -1,0 +1,16 @@
+[lsl]
+inlet_name = "control_output"                  # the stream which is queried for messages to be evaluated
+outlet_name = "validated_control_output"       # outbound stream containing the forwarded message if it meets the Gatekeeper bounds
+
+[target]
+module = "dp-ao-communication"                 # The module the parameters will be sent to
+
+[bounds]
+max_amp_mA = 6                                 # Maximum amplitude in mA
+charge_discharge_time_ratio = 1                # value for charge_pulse_time/discharge_pulse_time
+charge_discharge_amp_ratio = 1                 # value for charge_pulse_amp/discharge_pulse_amp
+max_width_ms = 0.2                             # maximum pulse width in ms
+freq_range = [130, 130]                        # frequency range in Hz, can be zero width to define just a single target frequency
+black_list_freq = []                           # frequencies which are never allowed
+white_list_contacts = ['10273', '10276']       # values for the contacts are allowed to take
+grace_period_s = 2                             # number of seconds to wait until any new command can be sent after a stimulation change was sent out 
